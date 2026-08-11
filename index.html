@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawkee Construtora | Alto Padrão</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-creme: #F6F5F2; 
+            --text-main: #1A1A1A;
+            --text-light: #6C757D;
+            --accent-blue: #2F54EB; 
+            --border-light: #E5E5E5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; color: var(--text-main); }
+        .logo-state { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--text-main); padding: 0.25rem 0.4rem; letter-spacing: 1px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-light); }
+        
+        .header-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.6rem 1.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .btn-portal:hover { background-color: var(--text-main); color: #FFFFFF; }
+
+        /* --- HERO --- */
+        .hero { text-align: center; padding: 6rem 5% 3rem; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -1px; }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            background-image: url('img/imagem-principal.png'); 
+            background-color: #f0f0f0; 
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 3rem auto;
+            border-radius: 4px;
+        }
+
+        /* --- TRILHO DE PROJETOS --- */
+        .trilho-container { padding: 0 5% 5rem 5%; }
+        .trilho { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; }
+        .trilho::-webkit-scrollbar { height: 8px; }
+        .trilho::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .trilho::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .trilho::-webkit-scrollbar-thumb:hover { background: #aaa; }
+        .trilho-item { min-width: 320px; height: 220px; scroll-snap-align: start; border-radius: 8px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.3s ease; }
+        .trilho-item:hover { transform: translateY(-5px); }
+        .trilho-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
+        .trilho-nome { position: relative; color: #FFF; padding: 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; }
+
+        /* --- VALORES E PARCEIROS --- */
+        .valores-parceiros { background-color: var(--bg-creme); padding: 6rem 5%; }
+        .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); margin-bottom: 0.5rem; display: block; }
+        .valores-parceiros h2 { font-size: 2rem; margin-bottom: 3rem; letter-spacing: -0.5px; }
+        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+        .card-valor { background: transparent; border: 1px solid rgba(0,0,0,0.05); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .card-valor svg { width: 24px; height: 24px; stroke: var(--accent-blue); fill: none; stroke-width: 2; }
+        .card-valor span { font-size: 1rem; font-weight: 500; }
+        .grid-parceiros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
+        .box-parceiro { aspect-ratio: 2/1; background: transparent; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: center; }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: #111111;
+            color: #FFFFFF;
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
+        .footer-col p, .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
+        .footer-col a:hover { color: #FFFFFF; }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
+        .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
+        .social-icons a:hover svg { fill: #FFFFFF; }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem; text-align: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-image { height: 400px; }
+            .grid-valores { grid-template-columns: 1fr; }
+            .grid-parceiros { grid-template-columns: repeat(2, 1fr); }
+            footer { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-wrapper">
+            <span class="logo">HAWKEE.</span>
+            <span class="logo-state">SC</span>
+        </a>
+        <nav class="nav-links">
+            <a href="projetos.html">Nossos Projetos</a>
+            <a href="entregas.html">Nossas Entregas</a>
+            <a href="processo.html">Processo</a>
+            <a href="contato.html">Fale Conosco</a>
+        </nav>
+        <div class="header-actions">
+            <a href="portal.html" class="btn-portal">Portal do Cliente</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>O extraordinário começa na matéria.</h1>
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="trilho-container">
+        <div class="trilho">
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 01</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 02</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 03</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 04</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 05</span></a>
+        </div>
+    </section>
+
+    <section class="valores-parceiros">
+        <span class="section-label">VALORES</span>
+        <h2>Princípios que nos guiam</h2>
+        <div class="grid-valores">
+            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 15l-3 3-3-3V5h6v10z"></path></svg><span>Excelência técnica</span></div>
+            <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg><span>Compromisso com prazos</span></div>
+            <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg><span>Planejamento</span></div>
+            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M9 18h6m-3-13v6m-4 5v-1a4 4 0 014-4h0a4 4 0 014 4v1m-4-10a4 4 0 100-8 4 4 0 000 8z"></path></svg><span>Inovação contínua</span></div>
+            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path><path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg><span>Sustentabilidade e eficiência</span></div>
+            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg><span>Ética e otimização de custos</span></div>
+        </div>
+
+        <span class="section-label">PARCEIROS</span>
+        <h2>Nos unimos apenas com aqueles que seguem nossos princípios</h2>
+        <div class="grid-parceiros">
+            <div class="box-parceiro"></div><div class="box-parceiro"></div><div class="box-parceiro"></div>
+            <div class="box-parceiro"></div><div class="box-parceiro"></div><div class="box-parceiro"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-col">
+            <h4>HAWKEE.</h4>
+            <p>Chalés autorais de alto padrão. Arquitetura e cuidado em cada detalhe.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="projetos.html">Nossos Projetos</a>
+            <a href="entregas.html">Nossas Entregas</a>
+            <a href="processo.html">Processo</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="portal.html">Portal do Cliente</a>
+        </div>
+        <div class="footer-col">
+            <h4>Atendimento</h4>
+            <a href="mailto:ptaulois.hawkee@gmail.com">ptaulois.hawkee@gmail.com</a>
+            <p>Palhoça, SC</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/hawkeebrasil/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.youtube.com/@hawkeebrasil" target="_blank" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

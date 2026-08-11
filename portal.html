@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Cliente | Hawkee Construtora</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-surface: #F8F9FA;
+            --text-main: #1A1A1A;
+            --text-light: #6C757D;
+            --border-light: #E5E5E5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background-color: #FFFFFF; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; }
+        .logo-wrapper { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; color: var(--text-main); }
+        .logo-state { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--text-main); padding: 0.25rem 0.4rem; letter-spacing: 1px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-light); }
+        .header-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: var(--text-main); color: #FFFFFF; border: 1px solid var(--text-main); padding: 0.6rem 1.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .portal-wrapper { display: flex; justify-content: center; align-items: center; padding: 5rem 5%; flex-grow: 1; }
+        .login-box { background-color: var(--bg-surface); border: 1px solid var(--border-light); padding: 3.5rem 3rem; width: 100%; max-width: 450px; border-radius: 4px; text-align: center; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .login-box h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .login-box p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2.5rem; line-height: 1.5; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group input { width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--border-light); background-color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 0.95rem; border-radius: 2px; outline: none; transition: border-color 0.3s; }
+        .form-group input:focus { border-color: var(--text-main); }
+        .btn-login { font-family: 'Montserrat', sans-serif; background-color: var(--text-main); color: #FFFFFF; border: none; padding: 1rem; width: 100%; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; margin-top: 1rem; }
+        .btn-login:hover { background-color: #333333; }
+        
+        .login-footer { margin-top: 2rem; font-size: 0.85rem; color: var(--text-light); }
+        .login-footer a { color: var(--text-main); font-weight: 600; cursor: pointer; }
+        .login-footer a:hover { text-decoration: underline; }
+        .divider { margin: 1.5rem 0; border-bottom: 1px solid var(--border-light); }
+
+        footer { background-color: #111111; color: #FFFFFF; padding: 5rem 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
+        .footer-col p, .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
+        .footer-col a:hover { color: #FFFFFF; }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
+        .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
+        .social-icons a:hover svg { fill: #FFFFFF; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem; text-align: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            footer { text-align: left; }
+            .login-box { padding: 2.5rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-wrapper">
+            <span class="logo">HAWKEE.</span>
+            <span class="logo-state">SC</span>
+        </a>
+        <nav class="nav-links">
+            <a href="projetos.html">Nossos Projetos</a>
+            <a href="entregas.html">Nossas Entregas</a>
+            <a href="processo.html">Processo</a>
+            <a href="contato.html">Fale Conosco</a>
+        </nav>
+        <div class="header-actions">
+            <a href="portal.html" class="btn-portal">Portal do Cliente</a>
+        </div>
+    </header>
+
+    <main class="portal-wrapper">
+        <div class="login-box" id="box-login">
+            <h1>Área do Cliente</h1>
+            <p>Acompanhe a evolução da sua obra em tempo real.</p>
+            <form action="#" onsubmit="event.preventDefault(); window.location.href = 'painel.html';">
+                <div class="form-group"><label for="login-email">E-mail Cadastrado</label><input type="email" id="login-email" placeholder="seuemail@exemplo.com" required></div>
+                <div class="form-group"><label for="login-senha">Senha de Acesso</label><input type="password" id="login-senha" placeholder="••••••••" required></div>
+                <button type="submit" class="btn-login">Acessar Portal</button>
+            </form>
+            <div class="login-footer">Ainda não tem acesso? <a onclick="alternarTelas()">Crie sua conta</a><div class="divider"></div>Esqueceu sua senha? <a href="contato.html">Fale com o suporte</a></div>
+        </div>
+
+        <div class="login-box" id="box-cadastro" style="display: none;">
+            <h1>Criar Conta</h1>
+            <p>Utilize o mesmo e-mail do seu contrato para vincularmos os dados da sua obra automaticamente.</p>
+            <form action="#" onsubmit="event.preventDefault(); alert('Cadastro recebido! Seu e-mail será vinculado ao seu projeto.'); alternarTelas();">
+                <div class="form-group"><label for="cad-nome">Nome Completo</label><input type="text" id="cad-nome" placeholder="Seu nome" required></div>
+                <div class="form-group"><label for="cad-email">E-mail (Igual ao Contrato)</label><input type="email" id="cad-email" placeholder="seuemail@exemplo.com" required></div>
+                <div class="form-group"><label for="cad-senha">Criar Senha</label><input type="password" id="cad-senha" placeholder="Mínimo de 8 caracteres" required></div>
+                <button type="submit" class="btn-login">Finalizar Cadastro</button>
+            </form>
+            <div class="login-footer">Já possui uma conta? <a onclick="alternarTelas()">Faça Login</a></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-col">
+            <h4>HAWKEE.</h4>
+            <p>Chalés autorais de alto padrão. Arquitetura e cuidado em cada detalhe.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegação</h4>
+            <a href="projetos.html">Nossos Projetos</a>
+            <a href="entregas.html">Nossas Entregas</a>
+            <a href="processo.html">Processo</a>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="portal.html">Portal do Cliente</a>
+        </div>
+        <div class="footer-col">
+            <h4>Atendimento</h4>
+            <a href="mailto:ptaulois.hawkee@gmail.com">ptaulois.hawkee@gmail.com</a>
+            <p>Palhoça, SC</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/hawkeebrasil/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.youtube.com/@hawkeebrasil" target="_blank" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function alternarTelas() {
+            const boxLogin = document.getElementById('box-login');
+            const boxCadastro = document.getElementById('box-cadastro');
+            if (boxLogin.style.display === 'none') {
+                boxLogin.style.display = 'block'; boxCadastro.style.display = 'none';
+            } else {
+                boxLogin.style.display = 'none'; boxCadastro.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
