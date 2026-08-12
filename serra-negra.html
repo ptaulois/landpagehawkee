@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossos Projetos | Hawkee Construtora</title>
+    <title>Chalé Serra Negra | Hawkee Construtora</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
 
@@ -74,161 +74,225 @@
 
         .nav-links { display: flex; gap: 2rem; }
         .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
+        .nav-links a:hover { color: var(--text-light); }
         
         .header-actions { display: flex; align-items: center; gap: 1.5rem; }
         .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.5rem 1.2rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
         .btn-portal:hover { background-color: var(--text-main); color: #FFFFFF; }
 
-        /* --- CONTEÚDO DE PROJETOS --- */
-        .page-header {
-            text-align: center;
-            padding: 5rem 5% 3rem 5%;
-            max-width: 800px;
+        /* --- CONTEÚDO DO PROJETO --- */
+        .projeto-container {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 4rem 5%;
         }
 
-        .page-header h1 {
+        .projeto-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .projeto-header h1 {
             font-size: 3rem;
             letter-spacing: -1px;
             margin-bottom: 1rem;
         }
 
-        .page-header p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        /* FILTROS */
-        .filtros-container {
+        .projeto-specs-resumo {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-            padding: 0 2%;
-        }
-
-        .filtro-btn {
-            background: transparent;
-            border: 1px solid var(--border-light);
-            padding: 0.6rem 1.2rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filtro-btn.active, .filtro-btn:hover {
-            background-color: var(--text-main);
-            color: #FFFFFF;
-            border-color: var(--text-main);
-        }
-
-        /* GRID DE PROJETOS */
-        .projetos-grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 4% 6rem 4%;
-        }
-
-        .projetos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1.5rem;
         }
 
-        .projeto-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+        .projeto-specs-resumo strong {
+            color: var(--text-main);
         }
 
-        .projeto-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .projeto-card-img {
-            height: 280px;
+        /* --- FOTO DE CAPA COM ZOOM --- */
+        .capa-principal {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 550px;
+            background-image: url('img/serra-negra-capa.png');
             background-size: cover;
             background-position: center;
-            position: relative;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
         }
+        .capa-principal:hover { opacity: 0.95; }
 
-        .projeto-tag {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: rgba(0,0,0,0.75);
-            color: #FFFFFF;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            backdrop-filter: blur(4px);
-        }
-
-        .projeto-card-info {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .projeto-card-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+        /* --- GALERIA DE FOTOS ADICIONAIS HARMONIOSA --- */
+        .secao-titulo {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.5px;
         }
 
-        .projeto-card-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-            flex-grow: 1;
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
-        .projeto-specs-mini {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
+        .galeria-item {
+            height: 260px;
+            border-radius: 6px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .galeria-item:hover {
+            transform: translateY(-4px);
+            opacity: 0.9;
+        }
+
+        /* --- LIGHTBOX (ZOOM DE IMAGEM) --- */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 2rem;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+        #lightbox .close-btn {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESPECIFICAÇÕES TÉCNICAS --- */
+        .tabela-tecnica {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 4rem;
+            font-size: 0.95rem;
+        }
+
+        .tabela-tecnica tr {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .tabela-tecnica td {
+            padding: 1rem 0.5rem;
+        }
+
+        .tabela-tecnica td:first-child {
             font-weight: 600;
             color: var(--text-main);
-            border-top: 1px solid var(--border-light);
-            padding-top: 1rem;
-            margin-bottom: 1.5rem;
+            width: 45%;
         }
 
-        .btn-detalhes {
-            display: block;
+        .tabela-tecnica td:last-child {
+            color: var(--text-light);
+        }
+
+        /* --- INCLUSOS E NÃO INCLUSOS --- */
+        .inclusos-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background-color: var(--bg-creme);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+
+        .inclusos-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .inclusos-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .inclusos-col li {
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .inclusos-col.sim li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .inclusos-col.nao li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        /* --- CTA DE CONTATO --- */
+        .cta-projeto {
             text-align: center;
-            background-color: var(--text-main);
+            background-color: #111111;
             color: #FFFFFF;
-            padding: 0.8rem;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+        }
+
+        .cta-projeto h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-projeto p { color: #A0A0A0; margin-bottom: 2rem; font-size: 1rem; }
+        
+        .btn-orcamento {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #111111;
+            padding: 0.9rem 2.5rem;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
             font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
 
-        .btn-detalhes:hover {
-            background-color: var(--accent-blue);
-        }
+        .btn-orcamento:hover { background-color: var(--accent-blue); color: #FFFFFF; }
 
         /* --- BOTÃO FLUTUANTE WHATSAPP --- */
         .wa-float-container {
@@ -351,21 +415,25 @@
         }
 
         /* --- RODAPÉ IDÊNTICO AO INDEX --- */
-        footer { background-color: #111111; color: #FFFFFF; padding: 5rem 0; width: 100%; }
-        
-        .footer-inner { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 5%; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 3rem; 
-            align-items: flex-start; 
+        footer {
+            background-color: #111111;
+            color: #FFFFFF;
+            padding: 5rem 0;
+            width: 100%;
+            margin-top: 6rem;
         }
-        
-        .footer-col:first-child {
-            margin-left: 0px; /* Puxa todo o bloco da logo e do texto para a esquerda. Ajuste os pixels se quiser mais ou menos */
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            align-items: flex-start;
         }
+
+        .footer-col { display: flex; flex-direction: column; justify-content: flex-start; }
 
         .footer-logo {
             height: 120px;
@@ -380,26 +448,19 @@
             margin-bottom: -70px; 
         }
 
-        .footer-col p { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; line-height: 1.5; }
         .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
-        .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
+        .footer-col p, .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
         .footer-col a:hover { color: #FFFFFF; }
         .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
         .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
         .social-icons a:hover svg { fill: #FFFFFF; }
 
-        @media (max-width: 1024px) {
-            .projetos-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
         @media (max-width: 900px) {
             .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-        }
-
-        @media (max-width: 768px) {
-            .projetos-grid { grid-template-columns: 1fr; }
-            .page-header h1 { font-size: 2.2rem; }
+            .inclusos-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+            .galeria-grid { grid-template-columns: 1fr; }
+            .projeto-specs-resumo { flex-direction: column; gap: 0.5rem; }
             .wa-float-container { bottom: 15px; right: 15px; }
         }
     </style>
@@ -413,7 +474,7 @@
                 <span class="logo-state">SC</span>
             </a>
             <nav class="nav-links">
-                <a href="projetos.html" class="active">Nossos Projetos</a>
+                <a href="projetos.html">Nossos Projetos</a>
                 <a href="entregas.html">Nossas Entregas</a>
                 <a href="processo.html">Processo</a>
                 <a href="contato.html">Fale Conosco</a>
@@ -424,118 +485,89 @@
         </div>
     </header>
 
-    <div class="page-header">
-        <h1>Nossos Projetos Autorais</h1>
-        <p>Conheça nossa linha completa de chalés projetados sob medida para aliar conforto térmico, sofisticação e engenharia de alto padrão.</p>
-    </div>
+    <div class="capa-principal" onclick="openLightbox('img/serra-negra-capa.png')"></div>
 
-    <div class="filtros-container">
-        <button class="filtro-btn active" onclick="filtrarProjetos('todos', this)">Todos os Modelos</button>
-        <button class="filtro-btn" onclick="filtrarProjetos('A-Frame', this)">A-Frame</button>
-        <button class="filtro-btn" onclick="filtrarProjetos('Moderno', this)">Modernos</button>
-        <button class="filtro-btn" onclick="filtrarProjetos('Rústico', this)">Rústicos</button>
-    </div>
-
-    <div class="projetos-grid-container">
-        <div class="projetos-grid">
-            
-            <div class="projeto-card" data-categoria="A-Frame">
-                <div class="projeto-card-img" style="background-image: url('img/serra-negra-capa.png');">
-                    <span class="projeto-tag">A-Frame</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Serra Negra</h3>
-                    <p>Um design robusto, aconchegante e ideal para regiões de montanha, com total aproveitamento de espaço.</p>
-                    <div class="projeto-specs-mini">
-                        <span>77 m²</span>
-                        <span>2 Dormitórios</span>
-                        <span>2 Banheiros</span>
-                    </div>
-                    <a href="serra-negra.html" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
+    <div class="projeto-container">
+        
+        <div class="projeto-header">
+            <span class="breadcrumb">Projetos / A-Frame</span>
+            <h1>Chalé Serra Negra</h1>
+            <div class="projeto-specs-resumo">
+                <div>Área: <strong>77 m²</strong></div>
+                <div>Base: <strong>4,50m x 8,50m</strong></div>
+                <div>Dormitórios: <strong>2</strong></div>
+                <div>Banheiros: <strong>2</strong></div>
             </div>
-
-            <div class="projeto-card" data-categoria="A-Frame">
-                <div class="projeto-card-img" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop');">
-                    <span class="projeto-tag">A-Frame</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Aurora</h3>
-                    <p>Integração total com a natureza com grandes panos de vidro e excelente iluminação natural.</p>
-                    <div class="projeto-specs-mini">
-                        <span>65 m²</span>
-                        <span>2 Dormitórios</span>
-                        <span>1 Banheiro</span>
-                    </div>
-                    <a href="#" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
-            </div>
-
-            <div class="projeto-card" data-categoria="Moderno">
-                <div class="projeto-card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop');">
-                    <span class="projeto-tag">Moderno</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Boreal</h3>
-                    <p>Inspirado na imensidão e sobriedade da natureza, unindo linhas retas e acabamento nobre.</p>
-                    <div class="projeto-specs-mini">
-                        <span>85 m²</span>
-                        <span>3 Dormitórios</span>
-                        <span>2 Banheiros</span>
-                    </div>
-                    <a href="#" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
-            </div>
-
-            <div class="projeto-card" data-categoria="Moderno">
-                <div class="projeto-card-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop');">
-                    <span class="projeto-tag">Moderno</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Solarium</h3>
-                    <p>Focado em grandes áreas envidraçadas e decks externos projetados para o lazer em família.</p>
-                    <div class="projeto-specs-mini">
-                        <span>92 m²</span>
-                        <span>3 Dormitórios</span>
-                        <span>2 Banheiros</span>
-                    </div>
-                    <a href="#" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
-            </div>
-
-            <div class="projeto-card" data-categoria="Rústico">
-                <div class="projeto-card-img" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop');">
-                    <span class="projeto-tag">Rústico</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Zenit</h3>
-                    <p>Traços limpos, sofisticados e contemporâneos que entregam conforto acústico e térmico superior.</p>
-                    <div class="projeto-specs-mini">
-                        <span>70 m²</span>
-                        <span>2 Dormitórios</span>
-                        <span>1 Banheiro</span>
-                    </div>
-                    <a href="#" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
-            </div>
-
-            <div class="projeto-card" data-categoria="Rústico">
-                <div class="projeto-card-img" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop');">
-                    <span class="projeto-tag">Rústico</span>
-                </div>
-                <div class="projeto-card-info">
-                    <h3>Chalé Reserva</h3>
-                    <p>Exclusividade e privacidade combinadas com a durabilidade da madeira autoclavada.</p>
-                    <div class="projeto-specs-mini">
-                        <span>78 m²</span>
-                        <span>2 Dormitórios</span>
-                        <span>2 Banheiros</span>
-                    </div>
-                    <a href="#" class="btn-detalhes">Ver Projeto Completo</a>
-                </div>
-            </div>
-
         </div>
+
+        <h2 class="secao-titulo">Galeria do Projeto</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item" style="background-image: url('img/serra-negra-foto1.png');" onclick="openLightbox('img/serra-negra-foto1.png')"></div>
+            <div class="galeria-item" style="background-image: url('img/serra-negra-planta.png');" onclick="openLightbox('img/serra-negra-planta.png')"></div>
+            <div class="galeria-item" style="background-image: url('img/serra-negra-telhado.jpg');" onclick="openLightbox('img/serra-negra-telhado.jpg')"></div>
+        </div>
+
+        <h2 class="secao-titulo">Especificações Técnicas</h2>
+        <table class="tabela-tecnica">
+            <tr><td>Categoria</td><td>A - Frame</td></tr>
+            <tr><td>Largura x Comprimento da base</td><td>4,50 m x 8,50 m</td></tr>
+            <tr><td>Área de Construção</td><td>77 m²</td></tr>
+            <tr><td>Número de dormitórios</td><td>2</td></tr>
+            <tr><td>Número de banheiros</td><td>2</td></tr>
+            <tr><td>Tipo da Escada</td><td>90° com patamar</td></tr>
+            <tr><td>Sistema Elétrico</td><td>Embutir / Sobrepor</td></tr>
+            <tr><td>Sistema Hidráulico</td><td>Água Quente / Água Fria</td></tr>
+            <tr><td>Tipo de fundação</td><td>Radier / Laje convencional</td></tr>
+            <tr><td>Tipo de Telha</td><td>Telha Metálica Sanduiche com isolamento térmico</td></tr>
+            <tr><td>Estrutura da parede</td><td>Madeira / Dupla</td></tr>
+            <tr><td>Isolamento térmico embutido (Lã de Pet)</td><td>Não</td></tr>
+            <tr><td>Revestimento Externo</td><td>Siding de Pinus Autoclave</td></tr>
+            <tr><td>Revestimento Interno</td><td>Siding de Pinus Autoclave</td></tr>
+            <tr><td>Espessura das Paredes Acabadas</td><td>13,5 cm</td></tr>
+            <tr><td>Estrutura do BWC - Área Molhada</td><td>Construção a Seco</td></tr>
+            <tr><td>Piso</td><td>Selecionado entre 5 opções disponíveis</td></tr>
+        </table>
+
+        <h2 class="secao-titulo">O que está incluso no Kit Hawkee?</h2>
+        <div class="inclusos-box">
+            <div class="inclusos-col sim">
+                <h3>Incluso no Kit</h3>
+                <ul>
+                    <li>Kit Madeiramento</li>
+                    <li>Kit Fixadores e Conectores Metálicos</li>
+                    <li>Kit Elétrica</li>
+                    <li>Kit Hidráulica</li>
+                    <li>Kit Sanitário</li>
+                    <li>Kit Telha com Isolamento Térmico</li>
+                    <li>Kit Pintura (13 opções de cores)</li>
+                    <li>Kit Paredes do BWC</li>
+                    <li>Kit Portas Internas do BWC</li>
+                    <li>Vidros (blindex do banheiro, janelas e portas)</li>
+                    <li>Mão de obra especializada</li>
+                    <li>Projeto Arquitetônico para aprovação em órgãos públicos</li>
+                </ul>
+            </div>
+            <div class="inclusos-col nao">
+                <h3>O que não acompanha</h3>
+                <ul>
+                    <li>Acessórios Banheiro (Vaso, Chuveiro, Torneira, Cuba)</li>
+                    <li>Calhas, Rufos e Aquecedor</li>
+                    <li>Kit Isolamento térmico e Acústico nas paredes (Lã de Pet)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-projeto">
+            <h2>Gostou do Chalé Serra Negra?</h2>
+            <p>Entre em contato com nossa equipe e solicite um orçamento personalizado para o seu terreno.</p>
+            <a href="contato.html" class="btn-orcamento">Falar com Consultor</a>
+        </div>
+
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom da Imagem">
     </div>
 
     <footer>
@@ -588,20 +620,15 @@
     </div>
 
     <script>
-        function filtrarProjetos(categoria, botaoClicado) {
-            const botoes = document.querySelectorAll('.filtro-btn');
-            botoes.forEach(btn => btn.classList.remove('active'));
-            botaoClicado.classList.add('active');
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = 'flex';
+        }
 
-            const cards = document.querySelectorAll('.projeto-card');
-            cards.forEach(card => {
-                const catCard = card.getAttribute('data-categoria');
-                if (categoria === 'todos' || catCard === categoria) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
         }
 
         function toggleWaMenu() {

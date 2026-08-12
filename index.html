@@ -29,112 +29,213 @@
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; }
         a { text-decoration: none; color: inherit; }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background-color: #FFFFFF;
-            border-bottom: 1px solid var(--border-light);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* --- CABEÇALHO PERFEITO E INTOCÁVEL --- */
+        header { background-color: #FFFFFF; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; width: 100%; }
+        .header-inner { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 5%; 
+            height: 70px; 
+            width: 100%; 
+        }
+        
+        .logo-wrapper { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            text-decoration: none; 
+        }
+        
+        .logo-img { 
+            height: 150px; 
+            width: auto; 
+            object-fit: contain;
+            transform: translateY(-5px); 
         }
 
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            text-decoration: none;
+        .logo-state { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            border: 2.0px solid var(--text-main); 
+            width: 32px; 
+            height: 32px; 
+            padding: 0; 
+            letter-spacing: 0; 
+            line-height: 1; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
         }
 
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; color: var(--text-main); }
-        .logo-state { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--text-main); padding: 0.25rem 0.4rem; letter-spacing: 1px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
-
-        .nav-links { display: flex; gap: 2.5rem; }
-        .nav-links a { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
         .nav-links a:hover { color: var(--text-light); }
         
         .header-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.6rem 1.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.5rem 1.2rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
         .btn-portal:hover { background-color: var(--text-main); color: #FFFFFF; }
 
-        .hero { text-align: center; padding: 6rem 5% 3rem; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        /* --- HERO SEÇÃO --- */
+        .hero { text-align: center; padding: 5rem 0 0 0; width: 100%; }
+        .hero h1 { font-size: 3rem; margin-bottom: 2.5rem; letter-spacing: -1px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 5%; }
+        .hero-image { width: 100%; height: 520px; background-image: url('img/imagem-principal.png'); background-color: #f0f0f0; background-size: cover; background-position: center; margin-bottom: 1.5rem; border-radius: 0; }
 
-        .hero-image {
-            width: 100%;
-            max-width: 1200px;
-            height: 600px;
-            background-image: url('img/imagem-principal.png'); 
-            background-color: #f0f0f0; 
-            background-size: cover;
-            background-position: center;
-            margin: 0 auto 3rem auto;
-            border-radius: 4px;
-        }
+        /* --- TRILHO DE PROJETOS COM SETAS --- */
+        .trilho-container { position: relative; max-width: 1200px; margin: 0 auto; padding: 0.5rem 5% 4rem 5%; }
+        .trilho { display: flex; gap: 1.2rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
+        .trilho::-webkit-scrollbar { display: none; }
+        .trilho-item { min-width: 270px; width: 270px; height: 125px; scroll-snap-align: start; border-radius: 6px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.3s ease; flex-shrink: 0; }
+        .trilho-item:hover { transform: translateY(-4px); }
+        .trilho-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)); }
+        .trilho-nome { position: relative; color: #FFF; padding: 0.8rem 1rem; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; }
 
-        .trilho-container { padding: 0 5% 5rem 5%; }
-        .trilho { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; }
-        .trilho::-webkit-scrollbar { height: 8px; }
-        .trilho::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .trilho::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-        .trilho-item { min-width: 320px; height: 220px; scroll-snap-align: start; border-radius: 8px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.3s ease; }
-        .trilho-item:hover { transform: translateY(-5px); }
-        .trilho-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
-        .trilho-nome { position: relative; color: #FFF; padding: 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; }
+        .scroll-btn { position: absolute; top: 40%; transform: translateY(-50%); background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; color: var(--text-main); }
+        .scroll-btn:hover { background: var(--text-main); color: #FFFFFF; border-color: var(--text-main); }
+        .scroll-btn.left { left: 2%; }
+        .scroll-btn.right { right: 2%; }
 
-        .valores-parceiros { background-color: var(--bg-creme); padding: 6rem 5%; }
-        .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); margin-bottom: 0.5rem; display: block; }
-        .valores-parceiros h2 { font-size: 2rem; margin-bottom: 3rem; letter-spacing: -0.5px; }
-        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
-        .card-valor { background: transparent; border: 1px solid rgba(0,0,0,0.05); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-        .card-valor svg { width: 24px; height: 24px; stroke: var(--accent-blue); fill: none; stroke-width: 2; }
-        .card-valor span { font-size: 1rem; font-weight: 500; }
-        .grid-parceiros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
-        .box-parceiro { aspect-ratio: 2/1; background: transparent; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: center; }
-
-        footer {
+        /* --- SEÇÃO QUEM SOMOS --- */
+        .quem-somos-section {
             background-color: #111111;
             color: #FFFFFF;
-            padding: 5rem 5%;
+            padding: 6rem 5%;
+            width: 100%;
+        }
+        .quem-somos-inner {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .quem-somos-titulo h2 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+        }
+        .quem-somos-texto p {
+            color: #A0A0A0;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
+        /* --- VALORES E PARCEIROS --- */
+        .valores-parceiros-wrapper { background-color: var(--bg-creme); padding: 6rem 0; width: 100%; }
+        .valores-parceiros-inner { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); margin-bottom: 0.5rem; display: block; }
+        .valores-parceiros-inner h2 { font-size: 2rem; margin-bottom: 3rem; letter-spacing: -0.5px; }
+        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
+        .card-valor { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; border-radius: 4px; }
+        .card-valor svg { width: 24px; height: 24px; stroke: var(--accent-blue); fill: none; stroke-width: 2; flex-shrink: 0; }
+        .card-valor span { font-size: 0.95rem; font-weight: 500; }
+        
+        .grid-parceiros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.2rem; }
+        .box-parceiro { aspect-ratio: 2/1; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: center; border-radius: 4px; padding: 0; overflow: hidden; }
+        .box-parceiro img { max-width: 85%; max-height: 85%; object-fit: contain; }
+
+        /* --- BOTÃO FLUTUANTE WHATSAPP --- */
+        .wa-float-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .wa-menu { display: none; width: 320px; background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,0.2); margin-bottom: 15px; overflow: hidden; border: 1px solid var(--border-light); animation: fadeIn 0.3s ease; }
+        .wa-menu.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .wa-menu-header { background-color: #111111; padding: 2rem 1.5rem 1.5rem 1.5rem; text-align: center; border-bottom: 2px solid var(--accent-blue); }
+        .wa-menu-header img { max-width: 140px; height: auto; margin-bottom: 1.2rem; }
+        .wa-menu-header h4 { color: #FFFFFF; font-size: 0.95rem; font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.4; margin-bottom: 0.6rem; }
+        .wa-menu-header p { color: #A0A0A0; font-size: 0.8rem; line-height: 1.5; font-family: 'Inter', sans-serif; }
+        .wa-menu-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+        .wa-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; background-color: #25D366; color: #FFFFFF; padding: 0.85rem 1rem; border-radius: 6px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; transition: background-color 0.3s, transform 0.2s; text-decoration: none; }
+        .wa-btn:hover { background-color: #1EBE5A; color: #FFFFFF; }
+        .wa-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .wa-trigger { width: 58px; height: 58px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: transform 0.3s ease; border: none; outline: none; }
+        .wa-trigger:hover { transform: scale(1.08); }
+        .wa-trigger svg { width: 32px; height: 32px; fill: #FFFFFF; }
+
+        /* --- RODAPÉ ALINHADO PERFEITAMENTE PELO TOPO --- */
+        footer { background-color: #111111; color: #FFFFFF; padding: 5rem 0; width: 100%; }
+        
+        .footer-inner { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 5%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 3rem; 
+            align-items: flex-start; /* Força todas as colunas a se alinharem perfeitamente pelo topo */
+        }
+        
+        /* --- AJUSTE DA PRIMEIRA COLUNA DO RODAPÉ --- */
+        .footer-col:first-child {
+            margin-left: 0px; /* Puxa todo o bloco da logo e do texto para a esquerda. Ajuste os pixels se quiser mais ou menos */
+        }
+
+	.footer-logo {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            align-self: flex-start;
+            
+            /* CONTROLE INDEPENDENTE DA LOGO */
+            position: relative;
+            left: -20px;   /* Mude aqui para mover a logo para a esquerda (ex: -20px) ou direita (ex: 10px) */
+            top: -45px;    /* Mude aqui para subir (negativo) ou descer (positivo) a logo */
+            margin-bottom: -70px; /* Controla a distância exata entre a logo e o texto logo abaixo */ 
+        }
+
+        /* --- TAMANHO DA FONTE DO TEXTO DO RODAPÉ --- */
+        .footer-col:first-child p { 
+            color: #A0A0A0; 
+            font-size: 0.8rem; /* Altere aqui o tamanho da fonte (ex: 0.75rem, 0.8rem, 0.85rem) */
+            line-height: 1.4; 
+            margin-bottom: 0; 
+        }
+
+        .footer-col p { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; line-height: 1.5; }
         .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
-        .footer-col p, .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
+        .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
         .footer-col a:hover { color: #FFFFFF; }
         .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
         .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
         .social-icons a:hover svg { fill: #FFFFFF; }
-
         @media (max-width: 900px) {
-            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem; text-align: center; }
+            .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
             .hero h1 { font-size: 2.2rem; }
-            .hero-image { height: 400px; }
+            .hero-image { height: 360px; }
+            .quem-somos-inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+            .quem-somos-titulo h2 { font-size: 2.5rem; }
             .grid-valores { grid-template-columns: 1fr; }
             .grid-parceiros { grid-template-columns: repeat(2, 1fr); }
+            .trilho-item { min-width: 220px; width: 220px; height: 115px; }
+            .scroll-btn { display: none; }
+            .wa-float-container { bottom: 15px; right: 15px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo-wrapper">
-            <span class="logo">HAWKEE.</span>
-            <span class="logo-state">SC</span>
-        </a>
-        <nav class="nav-links">
-            <a href="projetos.html">Nossos Projetos</a>
-            <a href="entregas.html">Nossas Entregas</a>
-            <a href="processo.html">Processo</a>
-            <a href="contato.html">Fale Conosco</a>
-        </nav>
-        <div class="header-actions">
-            <a href="portal.html" class="btn-portal">Portal do Cliente</a>
+        <div class="header-inner">
+            <a href="index.html" class="logo-wrapper">
+                <img src="img/Hawkee - Logomarca2.png" alt="Hawkee Construtora" class="logo-img">
+                <span class="logo-state">SC</span>
+            </a>
+            <nav class="nav-links">
+                <a href="projetos.html">Nossos Projetos</a>
+                <a href="entregas.html">Nossas Entregas</a>
+                <a href="processo.html">Processo</a>
+                <a href="contato.html">Fale Conosco</a>
+            </nav>
+            <div class="header-actions">
+                <a href="portal.html" class="btn-portal">Portal do Cliente</a>
+            </div>
         </div>
     </header>
 
@@ -144,57 +245,125 @@
     </section>
 
     <section class="trilho-container">
-        <div class="trilho">
-            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 01</span></a>
-            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 02</span></a>
-            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 03</span></a>
-            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 04</span></a>
-            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Projeto 05</span></a>
+        <button class="scroll-btn left" onclick="scrollTrilho(-1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="trilho" id="trilho-projetos">
+            <a href="serra-negra.html" class="trilho-item" style="background-image: url('img/serra-negra-capa.png');"><span class="trilho-nome">Chalé Serra Negra</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Chalé Aurora</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Chalé Boreal</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Chalé Solarium</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Chalé Zenit</span></a>
+            <a href="projetos.html" class="trilho-item" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop');"><span class="trilho-nome">Chalé Reserva</span></a>
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollTrilho(1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </section>
+
+    <section class="quem-somos-section">
+        <div class="quem-somos-inner">
+            <div class="quem-somos-titulo">
+                <h2>Quem<br>somos?</h2>
+            </div>
+            <div class="quem-somos-texto">
+                <p>Somos uma referência em construção e engenharia de alto padrão, especializada em chalés autorais. Pioneiros em sustentabilidade e eficiência, atuamos de forma verticalizada, executando todas as etapas do desenvolvimento dos nossos empreendimentos. Temos foco em construções exclusivas de alto e altíssimo padrão, com atuação em Palhoça e região em um raio de até 30 km.</p>
+            </div>
         </div>
     </section>
 
-    <section class="valores-parceiros">
-        <span class="section-label">VALORES</span>
-        <h2>Princípios que nos guiam</h2>
-        <div class="grid-valores">
-            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 15l-3 3-3-3V5h6v10z"></path></svg><span>Excelência técnica</span></div>
-            <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg><span>Compromisso com prazos</span></div>
-            <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg><span>Planejamento</span></div>
-            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M9 18h6m-3-13v6m-4 5v-1a4 4 0 014-4h0a4 4 0 014 4v1m-4-10a4 4 0 100-8 4 4 0 000 8z"></path></svg><span>Inovação contínua</span></div>
-            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path><path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg><span>Sustentabilidade e eficiência</span></div>
-            <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg><span>Ética e otimização de custos</span></div>
-        </div>
+    <div class="valores-parceiros-wrapper">
+        <section class="valores-parceiros-inner">
+            <span class="section-label">VALORES</span>
+            <h2>Princípios que nos guiam</h2>
+            <div class="grid-valores">
+                <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 15l-3 3-3-3V5h6v10z"></path></svg><span>Excelência técnica</span></div>
+                <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg><span>Compromisso com prazos</span></div>
+                <div class="card-valor"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg><span>Planejamento</span></div>
+                <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M9 18h6m-3-13v6m-4 5v-1a4 4 0 014-4h0a4 4 0 014 4v1m-4-10a4 4 0 100-8 4 4 0 000 8z"></path></svg><span>Inovação contínua</span></div>
+                <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path><path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg><span>Sustentabilidade e eficiência</span></div>
+                <div class="card-valor"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg><span>Ética e otimização de custos</span></div>
+            </div>
 
-        <span class="section-label">PARCEIROS</span>
-        <h2>Nos unimos apenas com aqueles que seguem nossos princípios</h2>
-        <div class="grid-parceiros">
-            <div class="box-parceiro"></div><div class="box-parceiro"></div><div class="box-parceiro"></div>
-            <div class="box-parceiro"></div><div class="box-parceiro"></div><div class="box-parceiro"></div>
-        </div>
-    </section>
+            <span class="section-label">PARCEIROS</span>
+            <h2>Nos unimos apenas com aqueles que seguem nossos princípios</h2>
+            <div class="grid-parceiros">
+                <div class="box-parceiro">
+                    <img src="img/calhashillesheim.png" alt="Calhas Hillesheim" style="transform: scale(1.5);">
+                </div>
+                <div class="box-parceiro">
+                    <img src="img/logo-mvidros.png" alt="Moldu Vidros" style="transform: scale(2.1);">
+                </div>
+                <div class="box-parceiro"></div>
+                <div class="box-parceiro"></div>
+                <div class="box-parceiro"></div>
+                <div class="box-parceiro"></div>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        <div class="footer-col">
-            <h4>HAWKEE.</h4>
-            <p>Chalés autorais de alto padrão. Arquitetura e cuidado em cada detalhe.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Navegação</h4>
-            <a href="projetos.html">Nossos Projetos</a>
-            <a href="entregas.html">Nossas Entregas</a>
-            <a href="processo.html">Processo</a>
-            <a href="contato.html">Fale Conosco</a>
-            <a href="portal.html">Portal do Cliente</a>
-        </div>
-        <div class="footer-col">
-            <h4>Atendimento</h4>
-            <a href="mailto:construacomahawkee@hawkeesc.com.br">construacomahawkee@hawkeesc.com.br</a>
-            <p>Palhoça, SC</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/hawkeebrasil/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                <a href="https://www.youtube.com/@hawkeebrasil" target="_blank" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <img src="img/Hawkee - Logomarca2.png" alt="Hawkee Construtora" class="footer-logo">
+                <p>Chalés autorais de alto padrão. Arquitetura e cuidado em cada detalhe.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <a href="projetos.html">Nossos Projetos</a>
+                <a href="entregas.html">Nossas Entregas</a>
+                <a href="processo.html">Processo</a>
+                <a href="contato.html">Fale Conosco</a>
+                <a href="portal.html">Portal do Cliente</a>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <a href="mailto:construacomahawkee@hawkeesc.com.br">construacomahawkee@hawkeesc.com.br</a>
+                <p>Palhoça, SC</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/hawkeebrasil/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="https://www.youtube.com/@hawkeebrasil" target="_blank" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <div class="wa-float-container">
+        <div class="wa-menu" id="wa-menu">
+            <div class="wa-menu-header">
+                <img src="img/Hawkee - Logomarca [ Invisivel ].png" alt="Hawkee Construtora">
+                <h4>Construção de chalés mistos em madeira e alvenaria!</h4>
+                <p>A confiança que você precisa com a qualidade que você merece!</p>
+            </div>
+            <div class="wa-menu-body">
+                <a href="https://wa.me/55048988520939" target="_blank" class="wa-btn">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    Vendedor Patrick (SC)
+                </a>
+                <a href="http://wa.me/55048988682569" target="_blank" class="wa-btn">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    Vendedor Vinícius (SC)
+                </a>
+            </div>
+        </div>
+        <button class="wa-trigger" onclick="toggleWaMenu()" aria-label="Abrir opções de WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </button>
+    </div>
+
+    <script>
+        function scrollTrilho(direction) {
+            const trilho = document.getElementById('trilho-projetos');
+            const scrollAmount = 300; 
+            trilho.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        }
+
+        function toggleWaMenu() {
+            const menu = document.getElementById('wa-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
