@@ -9,13 +9,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
 
         :root {
-            --bg-color: #FFFFFF;
-            --bg-surface: #F8F9FA;
-            --bg-creme: #F6F5F2;
-            --text-main: #1A1A1A;
-            --text-light: #6C757D;
-            --border-light: #E5E5E5;
-            --accent-blue: #2F54EB;
+            color-scheme: dark;
+            --brand-red: #D32F2F;
+            --bg-color: #141414;
+            --bg-surface: #1E1E1E;
+            --bg-creme: #1E1E1E;
+            --text-main: #FFFFFF;
+            --text-light: #A0A0A0;
+            --border-light: #2A2A2A;
+            --accent-blue: #D32F2F;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,22 +26,30 @@
         a { text-decoration: none; color: inherit; }
 
         /* --- CABEÇALHO PADRÃO EXATO DO INDEX --- */
-        header { background-color: #FFFFFF; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; width: 100%; }
+        header { 
+            background-color: #141414; 
+            border-bottom: 1px solid var(--border-light); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            width: 100%; 
+        }
+
         .header-inner { 
-            max-width: 1200px; 
+            max-width: 1350px; 
             margin: 0 auto; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 0 5%; 
-            height: 70px; 
+            padding: 0 3%; 
+            height: 90px; 
             width: 100%; 
+            white-space: nowrap; /* Impede que os links quebrem de linha */
         }
         
         .logo-wrapper { 
             display: flex; 
             align-items: center; 
-            gap: 1rem; 
             text-decoration: none; 
         }
         
@@ -47,32 +57,59 @@
             height: 150px; 
             width: auto; 
             object-fit: contain;
-            transform: translateY(-5px); 
+            /* Aplica o vermelho oficial da logo em substituição ao branco */
+            filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(7499%) hue-rotate(354deg) brightness(91%) contrast(93%);
+
+	position: relative;
+            left: 20px;  /* Mude para negativo (ex: -10px) para ir para esquerda, ou positivo para direita */
+            top: -7px;   /* Mude para negativo (ex: -5px) para subir, ou positivo para descer */
         }
 
-        .logo-state { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1rem; 
-            font-weight: 700; 
-            color: var(--text-main); 
-            border: 2.0px solid var(--text-main); 
-            width: 32px; 
-            height: 32px; 
-            padding: 0; 
-            letter-spacing: 0; 
-            line-height: 1; 
-            display: inline-flex; 
+        .nav-links { 
+            display: flex; 
             align-items: center; 
-            justify-content: center;
+            gap: 1.8rem; 
         }
 
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
+        .nav-links a { 
+            font-size: 0.72rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--text-main); 
+            transition: color 0.3s ease; 
+        }
+
+        .nav-links a:hover { 
+            color: var(--brand-red); 
+        }
         
-        .header-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.5rem 1.2rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
-        .btn-portal:hover { background-color: var(--text-main); color: #FFFFFF; }
+        .header-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 1.2rem; 
+        }
+
+        .btn-portal { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: transparent; 
+            border: 1px solid var(--text-main); 
+            color: var(--text-main); 
+            padding: 0.5rem 1.1rem; 
+            font-size: 0.72rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: all 0.3s ease; 
+        }
+
+        .btn-portal:hover { 
+            background-color: var(--brand-red); 
+            border-color: var(--brand-red); 
+            color: #FFFFFF; 
+        }
+
+
 
         /* --- CONTEÚDO DE CONTATO --- */
         .contato-container { max-width: 1100px; margin: 4rem auto 6rem; padding: 0 5%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
@@ -86,10 +123,10 @@
         .form-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         .form-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; }
         .form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .form-group input, .form-group textarea { padding: 0.9rem 1rem; border: 1px solid var(--border-light); background-color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 0.95rem; border-radius: 2px; outline: none; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--text-main); }
+        .form-group input, .form-group textarea { padding: 0.9rem 1rem; border: 1px solid var(--border-light); background-color: var(--bg-surface); font-family: 'Inter', sans-serif; font-size: 0.95rem; border-radius: 2px; outline: none; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--brand-red); }
         .form-group textarea { resize: vertical; min-height: 120px; }
-        .btn-submit { font-family: 'Montserrat', sans-serif; background-color: var(--text-main); color: #FFFFFF; border: none; padding: 1rem 2rem; width: 100%; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
+        .btn-submit { font-family: 'Montserrat', sans-serif; background-color: var(--brand-red); color: #FFFFFF; border: none; padding: 1rem 2rem; width: 100%; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
         .btn-submit:hover { background-color: #333333; }
 
         /* --- BOTÃO FLUTUANTE WHATSAPP --- */
@@ -106,7 +143,7 @@
         .wa-menu {
             display: none;
             width: 320px;
-            background-color: #FFFFFF;
+            background-color: var(--bg-surface);
             border-radius: 12px;
             box-shadow: 0 12px 35px rgba(0,0,0,0.2);
             margin-bottom: 15px;
@@ -149,15 +186,15 @@
         .wa-trigger svg { width: 32px; height: 32px; fill: #FFFFFF; }
 
         /* --- RODAPÉ IDÊNTICO AO INDEX --- */
-        footer { background-color: #111111; color: #FFFFFF; padding: 5rem 0; width: 100%; }
+        footer { background-color: #111111; color: #FFFFFF; padding: 5.5rem 0; width: 100%; }
         
         .footer-inner { 
-            max-width: 1200px; 
+            max-width: 1320px; 
             margin: 0 auto; 
             padding: 0 5%; 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 3rem; 
+            gap: 3.3rem; 
             align-items: flex-start; 
         }
         
@@ -167,7 +204,7 @@
             height: 120px;
             width: auto;
             object-fit: contain;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(7499%) hue-rotate(354deg) brightness(91%) contrast(93%);
             align-self: flex-start;
             
             position: relative;
@@ -176,13 +213,13 @@
             margin-bottom: -70px; 
         }
 
-        .footer-col p { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; line-height: 1.5; }
-        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
-        .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
-        .footer-col a:hover { color: #FFFFFF; }
-        .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
+        .footer-col p { color: #A0A0A0; font-size: 0.95rem; margin-bottom: 0.9rem; line-height: 1.5; }
+        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 1.6rem; color: #FFFFFF; }
+        .footer-col a { color: #A0A0A0; font-size: 0.95rem; margin-bottom: 0.9rem; display: block; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--brand-red); }
+        .social-icons { display: flex; gap: 1.1rem; margin-top: 1.3rem; }
         .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
-        .social-icons a:hover svg { fill: #FFFFFF; }
+        .social-icons a:hover svg { fill: var(--brand-red); }
 
         @media (max-width: 900px) {
             .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; }
@@ -195,7 +232,31 @@
             .form-group-row { grid-template-columns: 1fr; }
             .form-card { padding: 1.5rem; }
         }
-    </style>
+    
+        /* Identidade visual da Home aplicada aos componentes desta página. */
+        body { background-color: var(--bg-color); font-size: 1.1rem; }
+        input, textarea, select { color: var(--text-main); }
+        input::placeholder, textarea::placeholder { color: var(--text-light); opacity: 1; }
+        .filtro-btn { color: var(--text-main); }
+        .btn-orcamento { background: var(--brand-red); color: #FFFFFF; }
+        .btn-login:hover, .btn-submit:hover, .btn-detalhes:hover, .btn-orcamento:hover { background: #B71C1C; }
+        .nav-links a[aria-current="page"], .filter-years a.active-year { color: var(--brand-red); }
+        .wa-menu { background: #1E1E1E; }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-red); outline-offset: 4px; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--brand-red); }
+        @media (max-width: 1150px) {
+            .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; white-space: normal; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        }
+        @media (max-width: 600px) {
+            .logo-img { max-width: 100%; }
+            .entregas-grid, .gallery-grid { grid-template-columns: minmax(0, 1fr); }
+            .projeto-specs-resumo { flex-wrap: wrap; gap: 1rem; }
+            .wa-menu { max-width: calc(100vw - 30px); }
+            .card-header, .card-progress, .card-gallery { padding: 1.5rem; min-width: 0; }
+            .user-menu { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        }
+</style>
 </head>
 <body>
 
@@ -203,13 +264,12 @@
         <div class="header-inner">
             <a href="index.html" class="logo-wrapper">
                 <img src="img/Hawkee - Logomarca2.png" alt="Hawkee Construtora" class="logo-img">
-                <span class="logo-state">SC</span>
             </a>
             <nav class="nav-links">
-                <a href="projetos.html">Nossos Projetos</a>
-                <a href="entregas.html">Nossas Entregas</a>
-                <a href="processo.html">Processo</a>
-                <a href="contato.html" class="active">Fale Conosco</a>
+                <a href="projetos.html">Portfólio Exclusivo</a>
+                <a href="entregas.html">Obras Realizadas</a>
+                <a href="processo.html">O Método Hawkee</a>
+                <a href="contato.html" aria-current="page">Agende uma Consultoria</a>
             </nav>
             <div class="header-actions">
                 <a href="portal.html" class="btn-portal">Portal do Cliente</a>
