@@ -9,12 +9,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap');
 
         :root {
-            --bg-color: #FFFFFF;
-            --bg-creme: #F6F5F2; 
-            --text-main: #1A1A1A;
-            --text-light: #6C757D;
-            --accent-blue: #2F54EB; 
-            --border-light: #E5E5E5;
+            --bg-color: #141414; 
+            --bg-creme: #1E1E1E; 
+            --text-main: #FFFFFF;
+            --text-light: #A0A0A0;
+            --brand-red: #D32F2F; 
+            --border-light: #2A2A2A;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,28 +24,37 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
+            font-size: 1.1rem; /* Aumentado em 10% para melhor leitura */
         }
 
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; }
         a { text-decoration: none; color: inherit; }
 
-        /* --- CABEÇALHO PERFEITO E INTOCÁVEL --- */
-        header { background-color: #FFFFFF; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; width: 100%; }
+        /* --- CABEÇALHO DE ALTO PADRÃO (LINHA ÚNICA GARANTIDA) --- */
+        header { 
+            background-color: #141414; 
+            border-bottom: 1px solid var(--border-light); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            width: 100%; 
+        }
+
         .header-inner { 
-            max-width: 1200px; 
+            max-width: 1350px; 
             margin: 0 auto; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 0 5%; 
-            height: 70px; 
+            padding: 0 3%; 
+            height: 90px; 
             width: 100%; 
+            white-space: nowrap; /* Impede que os links quebrem de linha */
         }
         
         .logo-wrapper { 
             display: flex; 
             align-items: center; 
-            gap: 1rem; 
             text-decoration: none; 
         }
         
@@ -53,99 +62,125 @@
             height: 150px; 
             width: auto; 
             object-fit: contain;
-            transform: translateY(-5px); 
+            /* Aplica o vermelho oficial da logo em substituição ao branco */
+            filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(7499%) hue-rotate(354deg) brightness(91%) contrast(93%);
+
+	position: relative;
+            left: 20px;  /* Mude para negativo (ex: -10px) para ir para esquerda, ou positivo para direita */
+            top: -7px;   /* Mude para negativo (ex: -5px) para subir, ou positivo para descer */
         }
 
-        .logo-state { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 1rem; 
-            font-weight: 700; 
-            color: var(--text-main); 
-            border: 2.0px solid var(--text-main); 
-            width: 32px; 
-            height: 32px; 
-            padding: 0; 
-            letter-spacing: 0; 
-            line-height: 1; 
-            display: inline-flex; 
+        .nav-links { 
+            display: flex; 
             align-items: center; 
-            justify-content: center;
+            gap: 1.8rem; 
         }
 
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); transition: color 0.3s; }
-        .nav-links a:hover { color: var(--text-light); }
+        .nav-links a { 
+            font-size: 0.72rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--text-main); 
+            transition: color 0.3s ease; 
+        }
+
+        .nav-links a:hover { 
+            color: var(--brand-red); 
+        }
         
-        .header-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .btn-portal { font-family: 'Montserrat', sans-serif; background-color: transparent; border: 1px solid var(--text-main); padding: 0.5rem 1.2rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
-        .btn-portal:hover { background-color: var(--text-main); color: #FFFFFF; }
+        .header-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 1.2rem; 
+        }
+
+        .btn-portal { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: transparent; 
+            border: 1px solid var(--text-main); 
+            color: var(--text-main); 
+            padding: 0.5rem 1.1rem; 
+            font-size: 0.72rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: all 0.3s ease; 
+        }
+
+        .btn-portal:hover { 
+            background-color: var(--brand-red); 
+            border-color: var(--brand-red); 
+            color: #FFFFFF; 
+        }
 
         /* --- HERO SEÇÃO --- */
-        .hero { text-align: center; padding: 5rem 0 0 0; width: 100%; }
-        .hero h1 { font-size: 3rem; margin-bottom: 2.5rem; letter-spacing: -1px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 5%; }
-        .hero-image { width: 100%; height: 520px; background-image: url('img/imagem-principal.png'); background-color: #f0f0f0; background-size: cover; background-position: center; margin-bottom: 1.5rem; border-radius: 0; }
+        .hero { text-align: center; padding: 5.5rem 0 0 0; width: 100%; }
+        .hero h1 { font-size: 3.3rem; margin-bottom: 2.8rem; letter-spacing: -1px; max-width: 1300px; margin-left: auto; margin-right: auto; padding: 0 5%; color: #FFFFFF; }
+        .hero-image { width: 100%; height: 570px; background-image: url('img/imagem-principal.png'); background-color: #1A1A1A; background-size: cover; background-position: center; margin-bottom: 1.5rem; border-radius: 0; }
 
-        /* --- TRILHO DE PROJETOS COM SETAS --- */
-        .trilho-container { position: relative; max-width: 1200px; margin: 0 auto; padding: 0.5rem 5% 4rem 5%; }
-        .trilho { display: flex; gap: 1.2rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
+        /* --- TRILHO DE PROJETOS COM SETAS E HOVER VERMELHO --- */
+        .trilho-container { position: relative; max-width: 1320px; margin: 0 auto; padding: 0.5rem 5% 4.5rem 5%; }
+        .trilho { display: flex; gap: 1.3rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
         .trilho::-webkit-scrollbar { display: none; }
-        .trilho-item { min-width: 270px; width: 270px; height: 125px; scroll-snap-align: start; border-radius: 6px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.3s ease; flex-shrink: 0; }
+        .trilho-item { min-width: 295px; width: 295px; height: 135px; scroll-snap-align: start; border-radius: 6px; background-size: cover; background-position: center; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.3s ease; flex-shrink: 0; }
         .trilho-item:hover { transform: translateY(-4px); }
-        .trilho-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)); }
-        .trilho-nome { position: relative; color: #FFF; padding: 0.8rem 1rem; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; }
+        .trilho-item:hover .trilho-nome { color: var(--brand-red); }
+        .trilho-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2)); }
+        .trilho-nome { position: relative; color: #FFF; padding: 0.8rem 1rem; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; transition: color 0.3s ease; }
 
-        .scroll-btn { position: absolute; top: 40%; transform: translateY(-50%); background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; color: var(--text-main); }
-        .scroll-btn:hover { background: var(--text-main); color: #FFFFFF; border-color: var(--text-main); }
-        .scroll-btn.left { left: 2%; }
-        .scroll-btn.right { right: 2%; }
+        .scroll-btn { position: absolute; top: 40%; transform: translateY(-50%); background: #1E1E1E; border: 1px solid var(--border-light); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: all 0.3s ease; color: var(--text-main); }
+        .scroll-btn:hover { background: var(--brand-red); color: #FFFFFF; border-color: var(--brand-red); }
+        .scroll-btn.left { left: 1.5%; }
+        .scroll-btn.right { right: 1.5%; }
 
         /* --- SEÇÃO QUEM SOMOS --- */
         .quem-somos-section {
             background-color: #111111;
             color: #FFFFFF;
-            padding: 6rem 5%;
+            padding: 6.5rem 5%;
             width: 100%;
         }
         .quem-somos-inner {
-            max-width: 1200px;
+            max-width: 1320px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 4rem;
+            grid-template-columns: 300px 1fr;
+            gap: 4.5rem;
             align-items: center;
         }
         .quem-somos-titulo h2 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             line-height: 1.1;
             letter-spacing: -1px;
             color: #FFFFFF;
         }
         .quem-somos-texto p {
             color: #A0A0A0;
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.85;
         }
 
         /* --- VALORES E PARCEIROS --- */
-        .valores-parceiros-wrapper { background-color: var(--bg-creme); padding: 6rem 0; width: 100%; }
-        .valores-parceiros-inner { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); margin-bottom: 0.5rem; display: block; }
-        .valores-parceiros-inner h2 { font-size: 2rem; margin-bottom: 3rem; letter-spacing: -0.5px; }
-        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; }
-        .card-valor { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; border-radius: 4px; }
-        .card-valor svg { width: 24px; height: 24px; stroke: var(--accent-blue); fill: none; stroke-width: 2; flex-shrink: 0; }
-        .card-valor span { font-size: 0.95rem; font-weight: 500; }
+        .valores-parceiros-wrapper { background-color: var(--bg-creme); padding: 6.5rem 0; width: 100%; }
+        .valores-parceiros-inner { max-width: 1320px; margin: 0 auto; padding: 0 5%; }
+        .section-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-red); margin-bottom: 0.6rem; display: block; }
+        .valores-parceiros-inner h2 { font-size: 2.2rem; margin-bottom: 3.3rem; letter-spacing: -0.5px; color: var(--text-main); }
+        .grid-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-bottom: 5.5rem; }
+        .card-valor { background: #141414; border: 1px solid var(--border-light); padding: 1.7rem; display: flex; align-items: center; gap: 1.1rem; border-radius: 4px; color: #FFFFFF; }
+        .card-valor svg { width: 26px; height: 26px; stroke: var(--brand-red); fill: none; stroke-width: 2; flex-shrink: 0; }
+        .card-valor span { font-size: 1.05rem; font-weight: 500; }
         
-        .grid-parceiros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.2rem; }
-        .box-parceiro { aspect-ratio: 2/1; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: center; border-radius: 4px; padding: 0; overflow: hidden; }
+        .grid-parceiros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.3rem; }
+        .box-parceiro { aspect-ratio: 2/1; background: #141414; border: 1px solid var(--border-light); box-shadow: 0 4px 6px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; border-radius: 4px; padding: 0; overflow: hidden; }
         .box-parceiro img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
         /* --- BOTÃO FLUTUANTE WHATSAPP --- */
         .wa-float-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
-        .wa-menu { display: none; width: 320px; background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,0.2); margin-bottom: 15px; overflow: hidden; border: 1px solid var(--border-light); animation: fadeIn 0.3s ease; }
+        .wa-menu { display: none; width: 320px; background-color: #1E1E1E; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,0.4); margin-bottom: 15px; overflow: hidden; border: 1px solid var(--border-light); animation: fadeIn 0.3s ease; }
         .wa-menu.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .wa-menu-header { background-color: #111111; padding: 2rem 1.5rem 1.5rem 1.5rem; text-align: center; border-bottom: 2px solid var(--accent-blue); }
+        .wa-menu-header { background-color: #111111; padding: 2rem 1.5rem 1.5rem 1.5rem; text-align: center; border-bottom: 2px solid var(--brand-red); }
         .wa-menu-header img { max-width: 140px; height: auto; margin-bottom: 1.2rem; }
         .wa-menu-header h4 { color: #FFFFFF; font-size: 0.95rem; font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.4; margin-bottom: 0.6rem; }
         .wa-menu-header p { color: #A0A0A0; font-size: 0.8rem; line-height: 1.5; font-family: 'Inter', sans-serif; }
@@ -158,62 +193,54 @@
         .wa-trigger svg { width: 32px; height: 32px; fill: #FFFFFF; }
 
         /* --- RODAPÉ ALINHADO PERFEITAMENTE PELO TOPO --- */
-        footer { background-color: #111111; color: #FFFFFF; padding: 5rem 0; width: 100%; }
+        footer { background-color: #111111; color: #FFFFFF; padding: 5.5rem 0; width: 100%; }
         
         .footer-inner { 
-            max-width: 1200px; 
+            max-width: 1320px; 
             margin: 0 auto; 
             padding: 0 5%; 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 3rem; 
-            align-items: flex-start; /* Força todas as colunas a se alinharem perfeitamente pelo topo */
+            gap: 3.3rem; 
+            align-items: flex-start; 
         }
         
-        /* --- AJUSTE DA PRIMEIRA COLUNA DO RODAPÉ --- */
-        .footer-col:first-child {
-            margin-left: 0px; /* Puxa todo o bloco da logo e do texto para a esquerda. Ajuste os pixels se quiser mais ou menos */
-        }
+        .footer-col { display: flex; flex-direction: column; justify-content: flex-start; }
 
-	.footer-logo {
+        .footer-logo {
             height: 120px;
             width: auto;
             object-fit: contain;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(7499%) hue-rotate(354deg) brightness(91%) contrast(93%);
             align-self: flex-start;
             
-            /* CONTROLE INDEPENDENTE DA LOGO */
             position: relative;
-            left: -20px;   /* Mude aqui para mover a logo para a esquerda (ex: -20px) ou direita (ex: 10px) */
-            top: -45px;    /* Mude aqui para subir (negativo) ou descer (positivo) a logo */
-            margin-bottom: -70px; /* Controla a distância exata entre a logo e o texto logo abaixo */ 
+            left: -20px;       
+            top: -45px;      
+            margin-bottom: -70px; 
         }
 
-        /* --- TAMANHO DA FONTE DO TEXTO DO RODAPÉ --- */
-        .footer-col:first-child p { 
-            color: #A0A0A0; 
-            font-size: 0.8rem; /* Altere aqui o tamanho da fonte (ex: 0.75rem, 0.8rem, 0.85rem) */
-            line-height: 1.4; 
-            margin-bottom: 0; 
-        }
-
-        .footer-col p { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; line-height: 1.5; }
-        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: #FFFFFF; }
-        .footer-col a { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; transition: color 0.3s; }
-        .footer-col a:hover { color: #FFFFFF; }
-        .social-icons { display: flex; gap: 1rem; margin-top: 1.2rem; }
+        .footer-col p { color: #A0A0A0; font-size: 0.95rem; margin-bottom: 0.9rem; line-height: 1.5; }
+        .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 1.6rem; color: #FFFFFF; }
+        .footer-col a { color: #A0A0A0; font-size: 0.95rem; margin-bottom: 0.9rem; display: block; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--brand-red); }
+        .social-icons { display: flex; gap: 1.1rem; margin-top: 1.3rem; }
         .social-icons a svg { width: 24px; height: 24px; fill: #A0A0A0; transition: fill 0.3s; }
-        .social-icons a:hover svg { fill: #FFFFFF; }
-        @media (max-width: 900px) {
-            .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; }
+        .social-icons a:hover svg { fill: var(--brand-red); }
+
+        @media (max-width: 1150px) {
+            .header-inner { flex-direction: column; gap: 1.5rem; text-align: center; height: auto; padding: 1.5rem 5%; white-space: normal; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero-image { height: 360px; }
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero-image { height: 380px; }
             .quem-somos-inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-            .quem-somos-titulo h2 { font-size: 2.5rem; }
+            .quem-somos-titulo h2 { font-size: 2.6rem; }
             .grid-valores { grid-template-columns: 1fr; }
             .grid-parceiros { grid-template-columns: repeat(2, 1fr); }
-            .trilho-item { min-width: 220px; width: 220px; height: 115px; }
+            .trilho-item { min-width: 230px; width: 230px; height: 120px; }
             .scroll-btn { display: none; }
             .wa-float-container { bottom: 15px; right: 15px; }
         }
@@ -225,13 +252,12 @@
         <div class="header-inner">
             <a href="index.html" class="logo-wrapper">
                 <img src="img/Hawkee - Logomarca2.png" alt="Hawkee Construtora" class="logo-img">
-                <span class="logo-state">SC</span>
             </a>
             <nav class="nav-links">
-                <a href="projetos.html">Nossos Projetos</a>
-                <a href="entregas.html">Nossas Entregas</a>
-                <a href="processo.html">Processo</a>
-                <a href="contato.html">Fale Conosco</a>
+                <a href="projetos.html">Portfólio Exclusivo</a>
+                <a href="entregas.html">Obras Realizadas</a>
+                <a href="processo.html">O Método Hawkee</a>
+                <a href="contato.html">Agende uma Consultoria</a>
             </nav>
             <div class="header-actions">
                 <a href="portal.html" class="btn-portal">Portal do Cliente</a>
@@ -274,7 +300,7 @@
         </div>
     </section>
 
-    <div class="valores-parceiros-wrapper">
+    <div class="valores-parceiros-wrapper" style="background-color: var(--bg-creme);">
         <section class="valores-parceiros-inner">
             <span class="section-label">VALORES</span>
             <h2>Princípios que nos guiam</h2>
@@ -312,10 +338,10 @@
             </div>
             <div class="footer-col">
                 <h4>Navegação</h4>
-                <a href="projetos.html">Nossos Projetos</a>
-                <a href="entregas.html">Nossas Entregas</a>
-                <a href="processo.html">Processo</a>
-                <a href="contato.html">Fale Conosco</a>
+                <a href="projetos.html">Portfólio Exclusivo</a>
+                <a href="entregas.html">Obras Realizadas</a>
+                <a href="processo.html">O Método Hawkee</a>
+                <a href="contato.html">Agende uma Consultoria</a>
                 <a href="portal.html">Portal do Cliente</a>
             </div>
             <div class="footer-col">
@@ -340,11 +366,11 @@
             <div class="wa-menu-body">
                 <a href="https://wa.me/55048988520939" target="_blank" class="wa-btn">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Vendedor Patrick (SC)
+                    Especialista Patrick (SC)
                 </a>
                 <a href="http://wa.me/55048988682569" target="_blank" class="wa-btn">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Vendedor Vinícius (SC)
+                    Especialista Vinícius (SC)
                 </a>
             </div>
         </div>
