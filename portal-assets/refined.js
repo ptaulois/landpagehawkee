@@ -1,0 +1,1 @@
+for(const button of document.querySelectorAll('.back-projects'))button.onclick=()=>{const cards=document.getElementById('projects');cards.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});cards.querySelector('button')?.focus({preventScroll:true});};

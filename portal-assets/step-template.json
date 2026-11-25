@@ -1,0 +1,227 @@
+[
+  {
+    "key": "planejamento_planta",
+    "group_key": "planejamento",
+    "group_label": "Planejamento",
+    "group_position": 1,
+    "position": 1,
+    "label": "Planta baixa",
+    "weight": 2
+  },
+  {
+    "key": "planejamento_modelo3d",
+    "group_key": "planejamento",
+    "group_label": "Planejamento",
+    "group_position": 1,
+    "position": 2,
+    "label": "Projeto em 3D",
+    "weight": 2
+  },
+  {
+    "key": "planejamento_contrato",
+    "group_key": "planejamento",
+    "group_label": "Planejamento",
+    "group_position": 1,
+    "position": 3,
+    "label": "Contrato assinado",
+    "weight": 1
+  },
+  {
+    "key": "alvenaria_fundacao",
+    "group_key": "alvenaria",
+    "group_label": "Fundações e alvenaria",
+    "group_position": 2,
+    "position": 1,
+    "label": "Fundação / alicerce",
+    "weight": 5
+  },
+  {
+    "key": "alvenaria_contrapiso",
+    "group_key": "alvenaria",
+    "group_label": "Fundações e alvenaria",
+    "group_position": 2,
+    "position": 2,
+    "label": "Execução do contrapiso",
+    "weight": 2
+  },
+  {
+    "key": "alvenaria_paredes_alvenaria",
+    "group_key": "alvenaria",
+    "group_label": "Fundações e alvenaria",
+    "group_position": 2,
+    "position": 3,
+    "label": "Elevação da alvenaria",
+    "weight": 5
+  },
+  {
+    "key": "alvenaria_reboco",
+    "group_key": "alvenaria",
+    "group_label": "Fundações e alvenaria",
+    "group_position": 2,
+    "position": 4,
+    "label": "Revestimento em argamassa (reboco)",
+    "weight": 5
+  },
+  {
+    "key": "madeiramento_estrutura",
+    "group_key": "madeiramento",
+    "group_label": "Madeiramento",
+    "group_position": 3,
+    "position": 1,
+    "label": "Estrutura principal de madeira",
+    "weight": 8
+  },
+  {
+    "key": "madeiramento_paredes_madeira",
+    "group_key": "madeiramento",
+    "group_label": "Madeiramento",
+    "group_position": 3,
+    "position": 2,
+    "label": "Fechamento das paredes em madeira",
+    "weight": 14
+  },
+  {
+    "key": "madeiramento_estrutura_cobertura",
+    "group_key": "madeiramento",
+    "group_label": "Madeiramento",
+    "group_position": 3,
+    "position": 3,
+    "label": "Estrutura de madeira da cobertura",
+    "weight": 8
+  },
+  {
+    "key": "telhamento_telhas",
+    "group_key": "telhamento",
+    "group_label": "Telhamento",
+    "group_position": 4,
+    "position": 1,
+    "label": "Instalação das telhas",
+    "weight": 3
+  },
+  {
+    "key": "hidraulica_agua",
+    "group_key": "hidraulica",
+    "group_label": "Instalações hidráulicas",
+    "group_position": 5,
+    "position": 1,
+    "label": "Instalações de água fria e quente",
+    "weight": 5
+  },
+  {
+    "key": "eletrica_eletrica_geral",
+    "group_key": "eletrica",
+    "group_label": "Instalações elétricas",
+    "group_position": 6,
+    "position": 1,
+    "label": "Instalação elétrica geral",
+    "weight": 2
+  },
+  {
+    "key": "eletrica_circuitos",
+    "group_key": "eletrica",
+    "group_label": "Instalações elétricas",
+    "group_position": 6,
+    "position": 2,
+    "label": "Distribuição dos circuitos nos ambientes",
+    "weight": 3
+  },
+  {
+    "key": "esgoto_fossas",
+    "group_key": "esgoto",
+    "group_label": "Esgotamento sanitário",
+    "group_position": 7,
+    "position": 1,
+    "label": "Instalação do sistema de fossas",
+    "weight": 3
+  },
+  {
+    "key": "esgoto_tubulacoes_esgoto",
+    "group_key": "esgoto",
+    "group_label": "Esgotamento sanitário",
+    "group_position": 7,
+    "position": 2,
+    "label": "Tubulações e ligações à fossa",
+    "weight": 2
+  },
+  {
+    "key": "ceramica_piso",
+    "group_key": "ceramica",
+    "group_label": "Revestimentos cerâmicos",
+    "group_position": 8,
+    "position": 1,
+    "label": "Revestimento cerâmico dos pisos",
+    "weight": 4
+  },
+  {
+    "key": "ceramica_cozinha",
+    "group_key": "ceramica",
+    "group_label": "Revestimentos cerâmicos",
+    "group_position": 8,
+    "position": 2,
+    "label": "Revestimento das paredes da cozinha",
+    "weight": 3
+  },
+  {
+    "key": "ceramica_banheiro",
+    "group_key": "ceramica",
+    "group_label": "Revestimentos cerâmicos",
+    "group_position": 8,
+    "position": 3,
+    "label": "Revestimento do banheiro",
+    "weight": 5
+  },
+  {
+    "key": "pintura_pintura_interna",
+    "group_key": "pintura",
+    "group_label": "Pintura",
+    "group_position": 9,
+    "position": 1,
+    "label": "Pintura interna",
+    "weight": 5
+  },
+  {
+    "key": "pintura_pintura_externa",
+    "group_key": "pintura",
+    "group_label": "Pintura",
+    "group_position": 9,
+    "position": 2,
+    "label": "Pintura externa",
+    "weight": 5
+  },
+  {
+    "key": "calhas_calhas",
+    "group_key": "calhas",
+    "group_label": "Calhas e rufos",
+    "group_position": 10,
+    "position": 1,
+    "label": "Instalação das calhas",
+    "weight": 3
+  },
+  {
+    "key": "calhas_rufos",
+    "group_key": "calhas",
+    "group_label": "Calhas e rufos",
+    "group_position": 10,
+    "position": 2,
+    "label": "Instalação dos rufos",
+    "weight": 2
+  },
+  {
+    "key": "acabamentos_internos",
+    "group_key": "acabamentos",
+    "group_label": "Acabamentos",
+    "group_position": 11,
+    "position": 1,
+    "label": "Acabamentos internos",
+    "weight": 2
+  },
+  {
+    "key": "acabamentos_externos",
+    "group_key": "acabamentos",
+    "group_label": "Acabamentos",
+    "group_position": 11,
+    "position": 2,
+    "label": "Acabamentos externos",
+    "weight": 1
+  }
+]

@@ -244,7 +244,18 @@
             .scroll-btn { display: none; }
             .wa-float-container { bottom: 15px; right: 15px; }
         }
-    </style>
+    
+        .avaliacoes-section { border-top: 1px solid #333; padding: 4.5rem 5%; max-width: 1320px; margin: 0 auto; }
+        .avaliacoes-intro { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+        .avaliacoes-kicker { color: #d32f2f; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+        .avaliacoes-section h2 { font-family: 'Montserrat', sans-serif; color: #fff; font-size: clamp(1.7rem, 4vw, 2.5rem); margin: .8rem 0; }
+        .avaliacoes-section p { color: #aaa; line-height: 1.7; max-width: 650px; }
+        .avaliacoes-link { display: inline-block; padding: 1rem 1.4rem; border: 1px solid #d32f2f; background: #d32f2f; color: #fff; font-weight: 600; border-radius: 4px; }
+        .avaliacoes-link:hover { background: #b71c1c; }
+        .avaliacoes-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+        .avaliacoes-feed:not(:empty) { margin-top: 2rem; }
+
+</style>
 </head>
 <body>
 
@@ -326,6 +337,20 @@
             </div>
         </section>
     </div>
+
+    
+    <section class="avaliacoes-section" id="avaliacoes-google" aria-labelledby="avaliacoes-titulo">
+        <div class="avaliacoes-intro">
+            <div>
+                <span class="avaliacoes-kicker">Avaliações no Google</span>
+                <h2 id="avaliacoes-titulo">O que nossos clientes dizem</h2>
+                <p>Cada obra tem uma história. Compartilhe sua experiência com a Hawkee e ajude outras pessoas a conhecer nosso trabalho.</p>
+            </div>
+            <a class="avaliacoes-link" href="https://g.page/r/CZ_xVRhXP12LEBM/review" target="_blank" rel="noopener noreferrer">Avaliar a Hawkee no Google</a>
+        </div>
+        <!-- Inserir aqui o código oficial do widget conectado ao perfil Hawkee. -->
+        <div class="avaliacoes-feed" id="avaliacoes-feed"></div>
+    </section>
 
     <footer>
         <div class="footer-inner">
